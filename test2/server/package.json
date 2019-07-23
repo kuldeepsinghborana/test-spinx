@@ -1,0 +1,21 @@
+{
+  "name": "album-manager",
+  "version": "1.0.0",
+  "description": "manages the albums",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "kuldeep singh",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
+    "exif": "^0.6.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.5",
+    "multer": "^1.4.2",
+    "path": "^0.12.7"
+  }
+}

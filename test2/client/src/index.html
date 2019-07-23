@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+        <script src="/jquery/jquery.min.js"></script>
+        <script scr="/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/angular/angular.js"></script>
+    </head>
+    <body ng-app="test">
+        <div ng-controller="MyController as vm">
+            <div ng-repeat="elem as folderRoot">
+                <element-view details="elem"> </element-view>
+            </div>
+        </div>
+    </body>
+    <script>
+        angular
+        .module('test', [])
+        .directive('elementView', function() {
+            return {
+                restricted: 'E',
+                scope: {
+                    details:"=details"
+                },
+                template: '{{details}}<div>' +
+                    '<div ng-if="!details.filePath">' +
+                    '<img src="https://img.icons8.com/cotton/128/000000/folder-invoices--v1.png">' +
+                    '<div style="position:absolute"></div>' +
+                    '</div>'+
+                    '<div ng-if="details.filePath">' +
+                    '<img ng-src="{{details.filePath}}" />' +
+                    '</div>'+
+                    '</div>',
+                controller: function($scope) {
+                    console.log($scope);
+                }
+            }
+        })
+        .controller("MyController", function ($scope, $http) {
+                this.folderRoot = {
+                    name: 'root',
+                    filePath: "https://tpc.googlesyndication.com/simgad/289771241237848531"
+                };
+            });
+    </script>
+</html>
